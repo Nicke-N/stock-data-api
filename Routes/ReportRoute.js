@@ -8,7 +8,7 @@ router.post('/', reportController.addReport)
 
 router.patch('/:reportID', reportController.editReport)
 
-rouuter.delete('/:reportID', reportController.deleteReport)
+router.delete('/:reportID', reportController.deleteReport)
 
 router.get('/:reportID', reportController.getReport)
 

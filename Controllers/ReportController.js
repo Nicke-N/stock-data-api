@@ -29,7 +29,7 @@ module.exports = {
 
         try {
             const insert = await reports.addReport(req.body)
-            res.send(insert)
+            res.json(insert)
         } catch (error) {
             next(error)
         }

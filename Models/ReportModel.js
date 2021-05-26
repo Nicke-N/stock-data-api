@@ -10,6 +10,10 @@ const reportSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    period: {
+        type: String,
+        required: true
+    },
     revenue: {
         type: Number,
         required: true
@@ -22,19 +26,19 @@ const reportSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    shortTermDebt: {
+    shortTermDebt: { // short term liabilities
         type: Number,
         required: true
     },
-    longTermDebt: {
+    longTermDebt: { // long term liabilities
         type: Number,
         required: true
     },
-    capital: {
+    capital: { // cash & cash equivalents
         type: Number,
         required: true
     },
-    stockSpecificData: {
+    stockSpecificData: { // inventory, facilitydata etc..
         type: Array
     }
 })
@@ -45,7 +49,7 @@ module.exports = {
 
     getReports: async () => {
             try {
-                const list = await report.find({})
+                const list = await reports.find({})
                 return list
             } catch (error) {
                 return error
@@ -54,7 +58,7 @@ module.exports = {
 
     getReport: async (id) => {
         try {
-            const report = await report.find({_id: id})
+            const report = await reports.findOne({_id: id})
             return report
         } catch (error) {
             return error
