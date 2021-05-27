@@ -1,4 +1,3 @@
-const { report } = require('../App')
 const reports = require('../Models/ReportModel')
 
 module.exports = {
