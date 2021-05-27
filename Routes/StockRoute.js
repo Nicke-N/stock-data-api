@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
+const { admin } = require('../Middleware/Auth')
 
 const stockController = require('../Controllers/StockController')
 
 router.get('/', stockController.getStocks)
 
-router.post('/', stockController.addStock)
+router.post('/', admin, stockController.addStock)
 
-router.patch('/:stockID', stockController.editStock)
+router.patch('/:stockID', admin, stockController.editStock)
 
-router.delete('/:stockID', stockController.deleteStock)
+router.delete('/:stockID', admin, stockController.deleteStock)
 
 router.get('/:stockID', stockController.getStock)
 

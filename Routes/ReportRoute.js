@@ -1,14 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const reportController = require('../Controllers/ReportController')
+const { admin } = require('../Middleware/Auth')
 
 router.get('/', reportController.getReports)
 
-router.post('/', reportController.addReport)
+router.post('/', admin, reportController.addReport)
 
-router.patch('/:reportID', reportController.editReport)
+router.patch('/:reportID', admin, reportController.editReport)
 
-router.delete('/:reportID', reportController.deleteReport)
+router.delete('/:reportID', admin, reportController.deleteReport)
 
 router.get('/:reportID', reportController.getReport)
 
