@@ -47,9 +47,15 @@ const reports = mongoose.model('report', reportSchema)
 
 module.exports = {
 
-    getReports: async () => {
+    getReports: async (stockName) => {
             try {
-                const list = await reports.find({})
+                var list
+                if (!stockName) {
+                    list = await reports.find({})
+                } else {
+                    list = await reports.find({stockName: stockName})
+                }
+                 
                 return list
             } catch (error) {
                 return error

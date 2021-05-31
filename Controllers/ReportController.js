@@ -5,7 +5,14 @@ module.exports = {
     getReports: async (req, res, next) => {
 
         try {
-            const list = await reports.getReports()
+            var list
+            if (!req.headers.stockName) {
+                const stockName = req.headers.stockName
+                list = await reports.getReports(stockName)
+            } else {
+                list = await reports.getReports()
+            }
+           
             res.json(list)
         } catch (error) {
             next(error)
