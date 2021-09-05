@@ -10,7 +10,7 @@ var db = {
 const connect = async () => {
     let uri = await db.getUri()
 
-    setTimeout(() => {
+    setTimeout( async () => {
         await mongoose.connect(
             uri, 
             {
