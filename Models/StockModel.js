@@ -16,7 +16,7 @@ const stockSchema = new mongoose.Schema({
     },
     risk: {
         type: String,
-        default: 'Not sure'
+        default: 'Unknown'
     },
     risks: {
         type: Array,
@@ -35,8 +35,10 @@ const stocks = mongoose.model('stock', stockSchema)
 module.exports = {
 
     getStocks: async () => {
+        
             try {
                 const list = await stocks.find({})
+               
                 return list
             } catch (error) {
                 return error
