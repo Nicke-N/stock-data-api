@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env ENVIROMENT=dev node ./Start.js",
-    "dev": "nodemon ./Start.js",
-    "test": "cross-env ENVIROMENT=TEST && mocha --recursive --exit"
+    "start": "node ./Start.js",
+    "dev": "nodemon ./Start.js"
   },
   "repository": {
     "type": "git",

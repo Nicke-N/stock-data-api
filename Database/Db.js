@@ -1,27 +1,12 @@
 const mongoose = require('mongoose')
 mongoose.set('useFindAndModify', false)
-// const { MongoMemoryServer } = require('mongodb-memory-server')
 
 require('dotenv').config()
 
-var db, mongod
-
-// if (process.env.ENVIROMENT === 'TEST') {
-
-//     mongod = MongoMemoryServer.create()
-//     .then( db = {
-//         getUri: mongod.getUri()
-//     })
-   
-
-// } else {
-//     db = {
-//         getUri : async () => process.env.DB_CONNECTION
-//     }
-// }
-db = {
+var db = {
     getUri : async () => process.env.DB_CONNECTION
 }
+
 const connect = async () => {
     let uri = await db.getUri()
    
