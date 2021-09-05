@@ -10,7 +10,6 @@ var db = {
 const connect = async () => {
     let uri = await db.getUri()
 
-    setTimeout( async () => {
         await mongoose.connect(
             uri, 
             {
@@ -22,9 +21,6 @@ const connect = async () => {
         } else {
             console.log('Connected to DB')
         }
-    
-    },2000)
-      
     
 }
 
