@@ -28,18 +28,32 @@ const reportSchema = new mongoose.Schema({
     },
     shortTermDebt: { // short term liabilities
         type: Number,
-        required: true
+        
     },
     longTermDebt: { // long term liabilities
         type: Number,
-        required: true
+        
     },
     capital: { // cash & cash equivalents
         type: Number,
-        required: true
+        
     },
-    stockSpecificData: { // inventory, facilitydata etc..
-        type: Array
+    capitalAdequacy: {
+        type: Number,
+        
+    },
+    stockCount: {   
+        type: Number,
+        
+    },
+    inventory: {   
+        type: Number
+    },
+    employees: {   
+        type: Number
+    },
+    property: {   
+        type: Number
     }
 })
 
@@ -103,7 +117,7 @@ module.exports = {
                 reportID,
                 (err) => {
                     if (err) return err
-                    return 'Report was removed!'
+                    return 'Report was deleted!'
                 }
             )
         } catch (error) {

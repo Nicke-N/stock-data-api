@@ -3,11 +3,12 @@ const reports = require('../Models/ReportModel')
 module.exports = {
 
     getReports: async (req, res, next) => {
-
+       
         try {
             var list
-            if (!req.headers.stockName) {
-                const stockName = req.headers.stockName
+            if (req.headers.stockname) {
+                const stockName = req.headers.stockname
+                
                 list = await reports.getReports(stockName)
             } else {
                 list = await reports.getReports()
@@ -35,7 +36,7 @@ module.exports = {
 
         try {
             const insert = await reports.addReport(req.body)
-            res.json(insert)
+            res.send('Report was added!')
         } catch (error) {
             next(error)
         }
@@ -47,7 +48,7 @@ module.exports = {
 
         try {
             const update = await reports.editReport(id, req.body)
-            res.send(update)
+            res.send('Report was updated!')
         } catch (error) {
             next(error)
         }
@@ -58,7 +59,7 @@ module.exports = {
         const id = req.params.reportID
         try {
             const remove = await reports.deleteReport(id)
-            res.send(remove)
+            res.send('Report was deleted!')
         } catch (error) {
             next(error)
         }
