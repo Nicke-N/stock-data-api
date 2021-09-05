@@ -28,7 +28,7 @@ module.exports = {
 
         try {
             const insert = await stocks.addStock(req.body)
-            res.json(insert)
+            res.send('Stock was added!')
         } catch (error) {
             next(error)
         }
@@ -40,7 +40,7 @@ module.exports = {
 
         try {
             const update = await stocks.editStock(id, req.body)
-            res.send(update)
+            res.send('Stock was updated!')
         } catch (error) {
             next(error)
         }
@@ -51,7 +51,7 @@ module.exports = {
         const id = req.params.stockID
         try {
             const remove = await stocks.deleteStock(id)
-            res.send(remove)
+            res.send('Stock was deleted!')
         } catch (error) {
             next(error)
         }

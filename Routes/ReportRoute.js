@@ -5,11 +5,11 @@ const { admin } = require('../Middleware/Auth')
 
 router.get('/', reportController.getReports)
 
-router.post('/', admin, reportController.addReport)
+router.post('/', reportController.addReport)
 
-router.patch('/:reportID', admin, reportController.editReport)
+router.patch('/:reportID', reportController.editReport)
 
-router.delete('/:reportID', admin, reportController.deleteReport)
+router.delete('/:reportID', reportController.deleteReport)
 
 router.get('/:reportID', reportController.getReport)
 

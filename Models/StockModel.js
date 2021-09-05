@@ -10,10 +10,6 @@ const stockSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    niche: {
-        type: Array,
-        default: []
-    },
     dividend: {
         type: Number,
         default: 0
@@ -21,6 +17,10 @@ const stockSchema = new mongoose.Schema({
     risk: {
         type: String,
         default: 'Not sure'
+    },
+    risks: {
+        type: Array,
+        default: []
     },
     notes: {
         type: Array,
@@ -84,7 +84,7 @@ module.exports = {
                 stockID,
                 (err) => {
                     if (err) return err
-                    return 'Stock was removed!'
+                    return 'Stock was deleted!'
                 }
             )
         } catch (error) {

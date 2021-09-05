@@ -6,11 +6,11 @@ const stockController = require('../Controllers/StockController')
 
 router.get('/', stockController.getStocks)
 
-router.post('/', admin, stockController.addStock)
+router.post('/', stockController.addStock)
 
-router.patch('/:stockID', admin, stockController.editStock)
+router.patch('/:stockID', stockController.editStock)
 
-router.delete('/:stockID', admin, stockController.deleteStock)
+router.delete('/:stockID', stockController.deleteStock)
 
 router.get('/:stockID', stockController.getStock)
 
