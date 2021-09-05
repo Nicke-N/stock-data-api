@@ -9,7 +9,7 @@ var db = {
 
 const connect = async () => {
     let uri = await db.getUri()
-    console.log(uri)
+    
         await mongoose.connect(
             uri, 
             {
