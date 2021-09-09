@@ -25,6 +25,12 @@ const stockSchema = new mongoose.Schema({
     notes: {
         type: Array,
         default: []
+    },
+    newsLink: {
+        type: String
+    },
+    reportsLink: {
+        type: String
     }
 
 })
